@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:enabled="true">
+
+    <PreferenceCategory
+        android:title="@string/pref_title_settings">
+
+        <ListPreference
+            android:defaultValue="12"
+            android:title="@string/pref_title_text_size"
+            android:entries="@array/pref_text_size_titles"
+            android:entryValues="@array/pref_text_size_titles"
+            android:key="listPrefTextSize"
+            />
+        <ListPreference
+            android:defaultValue="1"
+            android:title="@string/pref_title_notification_freq"
+            android:entries="@array/pref_notification_frequency_titles"
+            android:entryValues="@array/pref_notification_frequency_titles"
+            android:key="listPrefNotify"/>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_edit_word"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditWordActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingTop="@dimen/tool_bar_top_padding"
+        android:transitionName="actionBar" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextWord"
+        android:hint="Word"
+        android:textColor="@color/material_drawer_secondary_text"
+        android:textColorHint="@color/material_drawer_hint_text"
+        android:layout_below="@+id/toolbarEdit"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextTranscription"
+        android:hint="Transcription"
+        android:textColor="@color/material_drawer_secondary_text"
+        android:textColorHint="@color/material_drawer_hint_text"
+        android:layout_below="@+id/editTextWord"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextTranslate"
+        android:textColor="@color/material_drawer_secondary_text"
+        android:textColorHint="@color/material_drawer_hint_text"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="0dp"
+        android:layout_below="@+id/editTextTranscription"
+        android:layout_alignStart="@+id/editTextTranscription"
+        android:hint="Translate"/>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnRemoveTranslate"
+        android:layout_above="@+id/btnOK"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:choiceMode="singleChoice"
+        android:id="@+id/listViewTranslation"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_delete"
+        android:layout_alignBottom="@+id/btnAddTranslate"
+        android:layout_toEndOf="@+id/btnAddTranslate"
+        android:layout_marginStart="8dp"
+        android:id="@+id/btnRemoveTranslate"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:id="@+id/btnAddTranslate"
+        android:layout_below="@+id/editTextTranscription"
+        android:layout_toEndOf="@+id/editTextTranscription"
+        android:layout_marginLeft="6dp"/>
+
+    <Button
+        android:text="OK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnOK"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>
