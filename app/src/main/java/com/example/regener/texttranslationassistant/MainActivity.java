@@ -52,6 +52,7 @@ public class MainActivity extends ActionBarActivity {
     private static String TAG = "PermissionDemo";
     private final int REQUEST_CODE = 1;
     private static final int REQUEST_READ_STORAGE = 112;
+    private static final int REQUEST_WRITE_STORAGE = 113;
     private final String FILE_OPENED_FILES = "OpenedFiles.xml";
 
     private StaggeredGridLayoutManager gaggeredGridLayoutManager;
@@ -82,6 +83,34 @@ public class MainActivity extends ActionBarActivity {
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                android.support.v7.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Permission to access the SD-CARD is required for this app to Open books.")
+                        .setTitle("Permission required");
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int id) {
+                        Log.i(TAG, "Clicked");
+                        makeRequest();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+            } else {
+                makeRequest();
+            }
+        }
+
+        permission = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            Log.i(TAG, "Permission to record denied");
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 android.support.v7.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage("Permission to access the SD-CARD is required for this app to Open books.")
                         .setTitle("Permission required");
@@ -249,6 +278,21 @@ public class MainActivity extends ActionBarActivity {
                 }
                 return;
             }
+            case REQUEST_WRITE_STORAGE: {
+
+                if (grantResults.length == 0
+                        || grantResults[0] !=
+                        PackageManager.PERMISSION_GRANTED) {
+
+                    Log.i(TAG, "Permission has been denied by user");
+
+                } else {
+
+                    Log.i(TAG, "Permission has been granted by user");
+
+                }
+                return;
+            }
 
         }
     }
@@ -279,6 +323,9 @@ public class MainActivity extends ActionBarActivity {
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                 REQUEST_READ_STORAGE);
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                REQUEST_WRITE_STORAGE);
     }
 
     private void getPrefs() {

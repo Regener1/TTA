@@ -66,7 +66,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/toggleButtonIsFavourView"
         tools:minWidth="48dp"
-        android:layout_marginLeft="12dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textViewWordView"/>
+        android:layout_marginLeft="21dp"
+        android:layout_alignBaseline="@+id/textViewWordView"
+        android:layout_alignBottom="@+id/textViewWordView"
+        android:layout_toRightOf="@+id/textViewWordView"
+        android:layout_toEndOf="@+id/textViewWordView"
+        android:layout_marginStart="21dp"/>
 </RelativeLayout>

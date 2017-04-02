@@ -66,7 +66,7 @@ public class SimpleFileDialog
         else Select_type = FileOpen;
 
         m_context = context;
-//        m_sdcardDirectory = Environment.getExternalStorageDirectory().getAbsolutePath()+"/download";
+        m_sdcardDirectory = Environment.getExternalStorageDirectory().getAbsolutePath();
 //        m_sdcardDirectory = m_context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
 
         //Environment.getExternalStorageDirectory().setReadable(true);

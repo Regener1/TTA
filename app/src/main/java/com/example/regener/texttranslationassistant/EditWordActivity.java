@@ -121,9 +121,9 @@ public class EditWordActivity extends AppCompatActivity {
                             TextView textView = (TextView) mListViewTranslation.getChildAt(i);
                             insertValuesTranslate.put(DBInfo.KEY_TRANSLATION_TRANSLATE, textView.getText().toString());
                             insertValuesTranslate.put(DBInfo.KEY_TRANSLATION_ID_WORD, id);
+                            mDatabase.insert(DBInfo.TABLE_TRANSLATION, null, insertValuesTranslate);
                         }
 
-                        mDatabase.insert(DBInfo.TABLE_TRANSLATION, null, insertValuesTranslate);
                         mDatabase.close();
 
                         int curPos = mListViewTranslation.getCheckedItemPosition();

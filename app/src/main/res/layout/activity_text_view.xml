@@ -36,7 +36,8 @@
                 android:layout_height="match_parent"
                 android:textColor="@color/material_drawer_secondary_text"
                 android:textColorHint="@color/material_drawer_hint_text"
-                android:id="@+id/textViewMainText"/>
+                android:id="@+id/textViewMainText"
+                android:textColorLink="@android:color/black"/>
         </LinearLayout>
     </ScrollView>
 
